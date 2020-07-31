@@ -1,0 +1,17 @@
+1. CREATE DATABASE myshop
+
+2.  - table user         => CREATE TABLE users ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), email VARCHAR(255), password VARCHAR(255) )
+    - table categories   => CREATE TABLE categories ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255))
+    - table items        => CREATE TABLE items ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), description VARCHAR(255), price INT, stock INT, category_id INT, FOREIGN KEY(category_id) REFERENCES categories(id) )
+
+3.  - insert users      => INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES (NULL, 'John Doe', 'john@doe.com', 'john123'), (NULL, 'Jane Doe', 'jane@doe.com', 'jenita123')
+    - insert categories => INSERT INTO `categories` (`id`, `name`) VALUES (NULL, 'gadget'), (NULL, 'cloth'), (NULL, 'men'), (NULL, 'women'), (NULL, 'branded')
+    - insert items      => INSERT INTO `items` (`id`, `name`, `description`, `price`, `stock`, `category_id`) VALUES (NULL, 'Sumsang b50', 'hape keren dari merek sumsang', '4000000', '100', '1'), (NULL, 'Uniklooh', 'baju keren dari brand ternamaa', '500000', '50', '2'), (NULL, 'IMHO Watch', 'jam tangan anak yang jujur banget', '2000000', '10', '1');
+
+4.  a. Mengambil data users                         => SELECT id, name, email FROM `users`
+    b. Mengambil data items : 
+            - harga lebih dari 1000000              => SELECT * FROM `items` WHERE price > 1000000
+            - tems yang memiliki name serupa        => SELECT * FROM `items` WHERE name LIKE '%watch%'
+    c. Menampilkan data items join dengan kategori  => SELECT items.*, categories.name FROM items LEFT JOIN categories ON items.category_id = categories.id
+
+5. Ubah data pada items untuk item dengan nama sumsang harganya (price) menjadi 2500000    => UPDATE `items` SET `price`=2500000 WHERE name LIKE '%sumsang%'
