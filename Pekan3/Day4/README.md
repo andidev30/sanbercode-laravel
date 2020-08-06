@@ -1,2 +1,2 @@
 # Sanbercode - Laravel 
-pekan 3 hari 3 - template blade laravel
+pekan 3 hari 4 - laravel migration

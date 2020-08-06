@@ -21,10 +21,6 @@ class CreateQuestionsTable extends Migration
             $table->date("tanggal_diperbaharui");
             $table->integer("jawaban_tepat_id")->unsigned()->unique();
             $table->integer("profile_id")->unsigned();
-
-
-            $table->foreign("jawaban_tepat_id")->references("id")->on("answers");
-            $table->foreign("profile_id")->references("id")->on("profiles");
         });
     }
 

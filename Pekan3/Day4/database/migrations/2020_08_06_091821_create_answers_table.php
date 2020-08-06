@@ -19,10 +19,6 @@ class CreateAnswersTable extends Migration
             $table->date("tangal_diperbaharui");
             $table->integer("pertanyaan_id")->unsigned();
             $table->integer("profile_id")->unsigned();
-
-
-            $table->foreign("pertanyaan_id")->references("id")->on("questions");
-            $table->foreign("profile_id")->references("id")->on("profiles");
             $table->timestamps();
         });
     }

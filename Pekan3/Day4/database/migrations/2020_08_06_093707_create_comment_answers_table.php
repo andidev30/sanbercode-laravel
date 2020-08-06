@@ -19,9 +19,6 @@ class CreateCommentAnswersTable extends Migration
             $table->integer("jawaban_id");
             $table->integer("profile_id");
             $table->timestamps();
-
-            $table->foreign("profile_id")->references("id")->on("profiles");
-            $table->foreign("jawaban_id")->references("id")->on("answers");
         });
     }
 
